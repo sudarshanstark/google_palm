@@ -4,8 +4,7 @@ import google.generativeai as palm
 
 palm.configure(api_key='AIzaSyDeXnoB50k2ULQ_zWXkOytKwpDTdFezo1I')
 
-# Use the 'st.text_area' function to create an input field where the user can enter a string
-prompt = st.text_area('Enter your prompt:', "")
+prompt = st.text_input('Enter your prompt here:')
 
 completion = palm.generate_text(
     model=model,
@@ -15,5 +14,4 @@ completion = palm.generate_text(
     max_output_tokens=800,
 )
 
-# Use 'st.write' to display the output
 st.write(completion.result)
